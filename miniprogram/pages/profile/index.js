@@ -8,6 +8,7 @@ Page({
   onShow() {
     applyTheme(this)
     this.sync()
+    if (this.getTabBar) this.getTabBar().setData({ selected: 3 })
   },
   sync() {
     const role = store.get('role')

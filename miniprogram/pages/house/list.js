@@ -13,6 +13,7 @@ Page({
     const t = store.get('houseFilter') || ''
     this.setData({ type: t, typeLabel: t ? TYPE_LABEL[t] : '全部' })
     this.load()
+    if (this.getTabBar) this.getTabBar().setData({ selected: 2 })
   },
   load() {
     call('house', { action: 'list', type: this.data.type }, { showError: false })

@@ -1,0 +1,50 @@
+/* custom-tab-bar/index.wxss */
+.tabbar {
+  display: flex;
+  align-items: flex-end;
+  height: 110rpx;
+  background: #fff;
+  border-top: 1rpx solid var(--c-line, #e5eae7);
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 999;
+  padding-bottom: env(safe-area-inset-bottom);
+  box-sizing: content-box;
+}
+.tabbar.elder { height: 150rpx; }
+
+.tab-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #6b7470;
+  padding-top: 10rpx;
+}
+.tab-item .icon { font-size: 38rpx; line-height: 1.2; }
+.tab-item .label { font-size: 22rpx; margin-top: 2rpx; }
+.tab-item.on { color: var(--c-primary, #2f6b4f); font-weight: 700; }
+.tabbar.elder .tab-item .icon { font-size: 52rpx; }
+.tabbar.elder .tab-item .label { font-size: 30rpx; }
+
+/* 中央凸起 AI 匹配按钮 */
+.tab-item.center { justify-content: flex-start; }
+.center-btn {
+  width: 96rpx;
+  height: 96rpx;
+  margin-top: -46rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2f6b4f, #4a8a6b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 20rpx rgba(47, 107, 79, 0.35);
+  border: 6rpx solid #fff;
+}
+.tabbar.elder .center-btn { width: 120rpx; height: 120rpx; margin-top: -56rpx; }
+.center-icon { color: #fff; font-size: 44rpx; }
+.tabbar.elder .center-icon { font-size: 56rpx; }
+.center-label { font-size: 22rpx; color: #6b7470; margin-top: 4rpx; }
+.tabbar.elder .center-label { font-size: 30rpx; }
+.center-label.on { color: var(--c-primary, #2f6b4f); font-weight: 700; }

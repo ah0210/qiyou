@@ -1,4 +1,4 @@
-<view class="page {{_theme}}">
+<view class="page-tab {{_theme}}">
   <view class="card"><role-switch bind:change="onRole" /></view>
 
   <view class="card list">

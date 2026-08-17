@@ -1,4 +1,4 @@
-<view class="page {{_theme}}">
+<view class="page-tab {{_theme}}">
   <view class="filters">
     <view class="filter {{type === '' ? 'filter--on' : ''}}" data-type="" bindtap="onFilter">全部</view>
     <view class="filter {{type === 'nomad' ? 'filter--on' : ''}}" data-type="nomad" bindtap="onFilter">游民</view>

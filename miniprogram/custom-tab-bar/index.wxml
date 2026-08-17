@@ -1,0 +1,21 @@
+<!-- custom-tab-bar/index.wxml -->
+<view class="tabbar {{elder ? 'elder' : ''}}">
+  <view
+    wx:for="{{list}}"
+    wx:key="text"
+    class="tab-item {{selected === index ? 'on' : ''}} {{item.tab ? '' : 'center'}}"
+    data-index="{{index}}"
+    bindtap="switchTab"
+  >
+    <block wx:if="{{item.tab}}">
+      <text class="icon">{{item.icon}}</text>
+      <text class="label">{{item.text}}</text>
+    </block>
+    <block wx:else>
+      <view class="center-btn {{selected === index ? 'on' : ''}}">
+        <text class="center-icon">{{item.icon}}</text>
+      </view>
+      <text class="label center-label {{selected === index ? 'on' : ''}}">{{item.text}}</text>
+    </block>
+  </view>
+</view>

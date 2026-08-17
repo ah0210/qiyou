@@ -8,6 +8,7 @@ Page({
   onShow() {
     applyTheme(this)
     this.load()
+    if (this.getTabBar) this.getTabBar().setData({ selected: 1 })
   },
   load() {
     call('city', { action: 'list' }, { showError: false })

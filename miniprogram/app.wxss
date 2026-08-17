@@ -1,17 +1,27 @@
-/* app.wxss —— 设计令牌（CSS 自定义属性，适老模式通过根节点 .theme--elder 切换） */
+/* app.wxss —— 设计令牌（CSS 自定义属性，双模式）
+ * 标准青年模式：page 默认变量
+ * 适老模式：根节点挂 .theme--elder，CSS 变量沿组件树继承（含自定义组件内部）
+ * 注意：选择器必须是 .theme--elder（不是 page.theme--elder），
+ *       因为 class 加在页面根 view 上而非 page 上 —— 这是 qichi 修复过的真机坑
+ */
 page {
   /* 颜色令牌 */
   --c-primary: #2f6b4f;
-  --c-primary-light: #4a8a6b;
+  --c-primary-dark: #1b4d33;
+  --c-primary-light: #e6f0eb;
+  --c-accent: #e8833a;
+  --c-danger: #d84b3a;
+  --c-danger-light: #fbe9e7;
+  --c-warn: #d98f1f;
+  --c-warn-light: #fdf3e0;
   --c-bg: #f5f7f6;
   --c-card: #ffffff;
   --c-text: #1f2a25;
   --c-text-sub: #6b7a72;
-  --c-border: #e5eae7;
-  --c-danger: #d9534f;
-  --c-warn: #e6a23c;
+  --c-line: #e5eae7;
 
   /* 字号令牌 */
+  --fs-xs: 22rpx;
   --fs-sm: 24rpx;
   --fs-md: 28rpx;
   --fs-lg: 32rpx;
@@ -26,66 +36,137 @@ page {
   --sp-xl: 48rpx;
 
   --radius: 16rpx;
+  --radius-lg: 24rpx;
+  --btn-h: 88rpx;
+  --fab-size: 104rpx;
 
   background: var(--c-bg);
   color: var(--c-text);
   font-size: var(--fs-md);
+  line-height: 1.65;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", sans-serif;
 }
 
-/* 适老模式：放大字号、加深对比 */
-page.theme--elder,
+/* ============ 适老模式变量覆盖 ============ */
 .theme--elder {
-  --fs-sm: 30rpx;
-  --fs-md: 36rpx;
-  --fs-lg: 42rpx;
-  --fs-xl: 52rpx;
-  --fs-title: 60rpx;
+  --c-bg: #ffffff;
   --c-text: #000000;
   --c-text-sub: #333333;
-  --c-bg: #ffffff;
+  --c-line: #c8d2cc;
+  --c-primary: #14532d;
+  --c-primary-dark: #0b3a1f;
+  --c-primary-light: #e3f2e8;
+
+  --fs-xs: 30rpx;
+  --fs-sm: 34rpx;
+  --fs-md: 38rpx;
+  --fs-lg: 44rpx;
+  --fs-xl: 52rpx;
+  --fs-title: 60rpx;
+
+  --sp-md: 32rpx;
+  --sp-lg: 40rpx;
+  --radius: 20rpx;
+  --radius-lg: 28rpx;
+  --btn-h: 128rpx;
+  --fab-size: 140rpx;
+
+  font-weight: 500;
 }
 
-/* 通用卡片 */
+/* ============ 通用布局 ============ */
+.page { padding: var(--sp-md); box-sizing: border-box; min-height: 100vh; }
+.page-tab { padding: var(--sp-md); padding-bottom: 240rpx; box-sizing: border-box; min-height: 100vh; }
+
+.row { display: flex; flex-direction: row; align-items: center; }
+.row-between { display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+.col { display: flex; flex-direction: column; }
+.flex1 { flex: 1; min-width: 0; }
+.center { display: flex; align-items: center; justify-content: center; }
+.wrap { flex-wrap: wrap; }
+.muted { color: var(--c-text-sub); font-size: var(--fs-sm); }
+.text-sub { color: var(--c-text-sub); font-size: var(--fs-sm); }
+.text-primary { color: var(--c-primary); }
+.text-danger { color: var(--c-danger); }
+.text-accent { color: var(--c-accent); }
+.text-bold { font-weight: 700; }
+.ellipsis { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.divider { height: 1rpx; background: var(--c-line); margin: var(--sp-md) 0; }
+.safe-bottom { padding-bottom: calc(var(--sp-lg) + env(safe-area-inset-bottom)); }
+
+/* ============ 卡片 ============ */
 .card {
   background: var(--c-card);
   border-radius: var(--radius);
   padding: var(--sp-md);
-  margin: var(--sp-sm) var(--sp-md);
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+  margin-bottom: var(--sp-md);
+  box-shadow: 0 4rpx 16rpx rgba(31, 42, 37, 0.05);
+  box-sizing: border-box;
 }
+.card--plain { box-shadow: none; border: 1rpx solid var(--c-line); }
 
-/* 通用按钮 */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--sp-sm) var(--sp-lg);
-  border-radius: 999rpx;
+.section-title {
   font-size: var(--fs-lg);
+  font-weight: 700;
+  margin: var(--sp-sm) 0 var(--sp-md);
+  display: flex;
+  align-items: center;
+}
+.section-title::before {
+  content: "";
+  width: 8rpx; height: 32rpx;
   background: var(--c-primary);
-  color: #fff;
+  border-radius: 4rpx;
+  margin-right: 14rpx;
 }
+
+/* ============ 按钮 ============ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: var(--btn-h);
+  border-radius: calc(var(--btn-h) / 2);
+  font-size: var(--fs-md); font-weight: 600;
+  border: none; line-height: 1; padding: 0 40rpx; margin: 0;
+  box-sizing: border-box;
+}
+.btn::after { border: none; }
+.btn-primary { background: var(--c-primary); color: #fff; }
+.btn-primary:active { background: var(--c-primary-dark); }
+.btn-accent { background: var(--c-accent); color: #fff; }
+.btn-ghost { background: var(--c-primary-light); color: var(--c-primary); }
+.btn-danger { background: var(--c-danger); color: #fff; }
 .btn-block { width: 100%; }
-.btn-outline { background: transparent; color: var(--c-primary); border: 2rpx solid var(--c-primary); }
+.btn[disabled] { opacity: 0.5; }
 
-/* 标签 */
+/* ============ 标签 ============ */
 .tag {
-  display: inline-block;
-  padding: 2rpx 16rpx;
-  border-radius: 999rpx;
-  background: rgba(47, 107, 79, 0.08);
-  color: var(--c-primary);
+  display: inline-flex; align-items: center;
+  padding: 4rpx 16rpx; border-radius: 999rpx;
   font-size: var(--fs-sm);
-  margin-right: var(--sp-xs);
+  background: var(--c-primary-light); color: var(--c-primary);
+  margin: 0 12rpx 12rpx 0;
 }
+.tag-accent { background: #fdefe2; color: #b45f1d; }
+.tag-danger { background: var(--c-danger-light); color: var(--c-danger); }
+.tag-warn { background: var(--c-warn-light); color: #b57a16; }
 
-/* 风险等级 */
-.lv-high { color: var(--c-danger); }
-.lv-mid { color: var(--c-warn); }
-.lv-low { color: var(--c-primary); }
+/* ============ 价格 / 风险等级 ============ */
+.price { color: var(--c-accent); font-weight: 800; font-size: var(--fs-lg); }
+.lv-high { color: var(--c-danger); font-weight: 700; }
+.lv-mid { color: var(--c-warn); font-weight: 700; }
+.lv-low { color: var(--c-primary); font-weight: 700; }
 
-/* 布局工具 */
-.row { display: flex; flex-direction: row; align-items: center; }
-.col { display: flex; flex-direction: column; }
-.flex1 { flex: 1; }
-.muted { color: var(--c-text-sub); }
+/* ============ AI 角标 ============ */
+.ai-badge {
+  display: inline-flex; align-items: center;
+  font-size: var(--fs-xs); color: #7a5cc9;
+  background: #f1ecfb; border-radius: 10rpx;
+  padding: 2rpx 12rpx; margin-left: 10rpx;
+}
+.ai-tip { font-size: var(--fs-xs); color: var(--c-text-sub); margin-top: var(--sp-sm); line-height: 1.6; }
+
+/* ============ 空状态 ============ */
+.empty-tip {
+  text-align: center; color: var(--c-text-sub);
+  padding: 80rpx var(--sp-md); font-size: var(--fs-md);
+}

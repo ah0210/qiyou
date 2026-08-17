@@ -1,4 +1,4 @@
-<view class="page {{_theme}}">
+<view class="page-tab {{_theme}}">
   <view class="banner">
     <text class="banner__title">预算测算</text>
     <text class="banner__desc">看看在哪座城市安家最划算</text>
