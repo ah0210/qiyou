@@ -1,0 +1,17 @@
+<view class="page {{_theme}}">
+  <view class="head">
+    <text class="head__title">栖游</text>
+    <text class="head__sub">你好，{{roleLabel}}</text>
+  </view>
+  <view class="card"><role-switch /></view>
+
+  <view class="grid">
+    <view class="grid__cell" wx:for="{{modules}}" wx:key="title">
+      <view class="grid__item" data-url="{{item.url}}" data-tab="{{item.tab}}" bindtap="onTapModule">
+        <text class="grid__icon">{{item.icon}}</text>
+        <text class="grid__title">{{item.title}}</text>
+        <text class="grid__desc">{{item.desc}}</text>
+      </view>
+    </view>
+  </view>
+</view>

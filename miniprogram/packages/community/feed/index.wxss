@@ -1,0 +1,2 @@
+.textarea { width: 100%; min-height: 140rpx; background: var(--c-bg); border-radius: var(--radius); padding: var(--sp-sm); font-size: var(--fs-sm); box-sizing: border-box; }
+.post-title { font-size: var(--fs-lg); font-weight: 600; display: block; margin-bottom: var(--sp-xs); }

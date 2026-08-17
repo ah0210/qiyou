@@ -1,0 +1,8 @@
+<view class="row switch">
+  <view wx:for="{{roles}}" wx:key="key"
+        class="switch__item {{active === item.key ? 'switch__item--on' : ''}}"
+        data-role="{{item.key}}" bindtap="onSelect">
+    <text class="switch__icon">{{item.icon}}</text>
+    <text class="switch__label">{{item.label}}</text>
+  </view>
+</view>

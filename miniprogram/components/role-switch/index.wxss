@@ -1,0 +1,14 @@
+/* components/role-switch */
+.switch { background: var(--c-bg); border-radius: var(--radius); padding: 8rpx; }
+.switch__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--sp-sm) 0;
+  border-radius: var(--radius);
+  color: var(--c-text-sub);
+}
+.switch__item--on { background: var(--c-card); color: var(--c-primary); font-weight: 600; }
+.switch__icon { font-size: var(--fs-xl); }
+.switch__label { font-size: var(--fs-sm); margin-top: 4rpx; }

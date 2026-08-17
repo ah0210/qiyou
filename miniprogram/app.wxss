@@ -1,0 +1,91 @@
+/* app.wxss —— 设计令牌（CSS 自定义属性，适老模式通过根节点 .theme--elder 切换） */
+page {
+  /* 颜色令牌 */
+  --c-primary: #2f6b4f;
+  --c-primary-light: #4a8a6b;
+  --c-bg: #f5f7f6;
+  --c-card: #ffffff;
+  --c-text: #1f2a25;
+  --c-text-sub: #6b7a72;
+  --c-border: #e5eae7;
+  --c-danger: #d9534f;
+  --c-warn: #e6a23c;
+
+  /* 字号令牌 */
+  --fs-sm: 24rpx;
+  --fs-md: 28rpx;
+  --fs-lg: 32rpx;
+  --fs-xl: 40rpx;
+  --fs-title: 48rpx;
+
+  /* 间距令牌 */
+  --sp-xs: 8rpx;
+  --sp-sm: 16rpx;
+  --sp-md: 24rpx;
+  --sp-lg: 32rpx;
+  --sp-xl: 48rpx;
+
+  --radius: 16rpx;
+
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-size: var(--fs-md);
+}
+
+/* 适老模式：放大字号、加深对比 */
+page.theme--elder,
+.theme--elder {
+  --fs-sm: 30rpx;
+  --fs-md: 36rpx;
+  --fs-lg: 42rpx;
+  --fs-xl: 52rpx;
+  --fs-title: 60rpx;
+  --c-text: #000000;
+  --c-text-sub: #333333;
+  --c-bg: #ffffff;
+}
+
+/* 通用卡片 */
+.card {
+  background: var(--c-card);
+  border-radius: var(--radius);
+  padding: var(--sp-md);
+  margin: var(--sp-sm) var(--sp-md);
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+/* 通用按钮 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-sm) var(--sp-lg);
+  border-radius: 999rpx;
+  font-size: var(--fs-lg);
+  background: var(--c-primary);
+  color: #fff;
+}
+.btn-block { width: 100%; }
+.btn-outline { background: transparent; color: var(--c-primary); border: 2rpx solid var(--c-primary); }
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  padding: 2rpx 16rpx;
+  border-radius: 999rpx;
+  background: rgba(47, 107, 79, 0.08);
+  color: var(--c-primary);
+  font-size: var(--fs-sm);
+  margin-right: var(--sp-xs);
+}
+
+/* 风险等级 */
+.lv-high { color: var(--c-danger); }
+.lv-mid { color: var(--c-warn); }
+.lv-low { color: var(--c-primary); }
+
+/* 布局工具 */
+.row { display: flex; flex-direction: row; align-items: center; }
+.col { display: flex; flex-direction: column; }
+.flex1 { flex: 1; }
+.muted { color: var(--c-text-sub); }

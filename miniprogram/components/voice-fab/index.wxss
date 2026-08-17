@@ -1,0 +1,18 @@
+/* components/voice-fab */
+.fab {
+  position: fixed;
+  right: 40rpx;
+  bottom: 160rpx;
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  background: var(--c-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
+  box-shadow: 0 8rpx 24rpx rgba(47, 107, 79, 0.35);
+  z-index: 999;
+}
+.fab--on { background: var(--c-danger); }

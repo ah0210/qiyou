@@ -1,0 +1,25 @@
+<view class="page {{_theme}}">
+  <view class="card">
+    <text class="label">我的家属</text>
+    <view wx:if="{{!list.length}}" class="muted">暂无绑定家属</view>
+    <view class="row" wx:for="{{list}}" wx:key="openid">
+      <text class="flex1">{{item.nickName || item.openid}}</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="label">生成邀请码（5 分钟有效）</text>
+    <view class="row">
+      <text class="code flex1">{{inviteCode || '————'}}</text>
+      <view class="btn" bindtap="onInvite">{{inviteCode ? '重新生成' : '生成'}}</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="label">绑定家属（输入邀请码）</text>
+    <view class="row">
+      <input class="input flex1" placeholder="6 位邀请码" value="{{bindCode}}" bindinput="onBindInput" />
+      <view class="btn" bindtap="onBind">绑定</view>
+    </view>
+  </view>
+</view>

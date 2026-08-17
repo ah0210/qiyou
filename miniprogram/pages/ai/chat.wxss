@@ -1,0 +1,23 @@
+.chat { display: flex; flex-direction: column; height: 100vh; box-sizing: border-box; }
+.messages { flex: 1; overflow-y: auto; padding: var(--sp-md); }
+.msg { margin-bottom: var(--sp-md); display: flex; }
+.msg.user { justify-content: flex-end; }
+.msg__text {
+  max-width: 75%;
+  padding: var(--sp-sm) var(--sp-md);
+  border-radius: var(--radius);
+  font-size: var(--fs-md);
+  line-height: 1.5;
+  background: var(--c-card);
+  color: var(--c-text);
+}
+.msg.user .msg__text { background: var(--c-primary); color: #fff; }
+.inputbar {
+  display: flex;
+  align-items: center;
+  padding: var(--sp-sm) var(--sp-md);
+  background: var(--c-card);
+  gap: var(--sp-sm);
+}
+.input { flex: 1; background: var(--c-bg); border-radius: 999rpx; padding: var(--sp-sm) var(--sp-md); font-size: var(--fs-md); }
+.send { flex-shrink: 0; }

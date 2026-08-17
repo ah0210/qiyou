@@ -1,0 +1,14 @@
+<view class="page {{_theme}} chat">
+  <view class="messages">
+    <view wx:for="{{messages}}" wx:key="index" class="msg {{item.role}}">
+      <text class="msg__text">{{item.text}}</text>
+    </view>
+  </view>
+
+  <view class="inputbar">
+    <input class="input" placeholder="问问医保/预算/城市..." value="{{input}}" bindinput="onInput" confirm-type="send" bindconfirm="onSend" />
+    <view class="btn send" bindtap="onSend">发送</view>
+  </view>
+
+  <voice-fab bind:result="onVoiceResult" />
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "城市详情",
+  "usingComponents": {
+    "score-radar": "/components/score-radar/index"
+  }
+}

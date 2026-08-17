@@ -1,0 +1,28 @@
+<view class="page {{_theme}}">
+  <view class="card">
+    <text class="label">选择要对比的房源（2-3 个）</text>
+    <view class="pick" wx:for="{{houses}}" wx:key="_id"
+          data-id="{{item._id}}" bindtap="onPick">
+      <view class="pick__check">{{sel.includes(item._id) ? '✓' : ''}}</view>
+      <text>{{item.title}}</text>
+    </view>
+    <view class="btn btn-block" bindtap="onCompare">对比</view>
+  </view>
+
+  <view class="table" wx:if="{{compareList.length}}">
+    <view class="table__row table__head">
+      <view class="table__dim">设施</view>
+      <view class="table__cell" wx:for="{{compareList}}" wx:key="_id">{{item.title}}</view>
+    </view>
+    <view class="table__row" wx:for="{{dims}}" wx:key="key" wx:for-item="dim">
+      <view class="table__dim">{{dim.label}}</view>
+      <view class="table__cell" wx:for="{{compareList}}" wx:key="_id" wx:for-item="h">
+        {{h.facilities[dim.key] ? '✓' : '—'}}
+      </view>
+    </view>
+    <view class="table__row">
+      <view class="table__dim">价格</view>
+      <view class="table__cell" wx:for="{{compareList}}" wx:key="_id">¥{{item.priceMin}}/{{item.priceUnit}}</view>
+    </view>
+  </view>
+</view>

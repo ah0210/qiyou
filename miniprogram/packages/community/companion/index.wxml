@@ -1,0 +1,21 @@
+<view class="page {{_theme}}">
+  <view class="card">
+    <text class="label">为你匹配的同城搭子</text>
+    <text class="muted">基于同城、时间重叠与兴趣重合度</text>
+  </view>
+
+  <view class="card" wx:for="{{matches}}" wx:key="openid">
+    <view class="row">
+      <text class="name flex1">{{item.nickName}}</text>
+      <text class="price">{{item.score}} 分</text>
+    </view>
+    <text class="muted">{{item.cityName}} · {{item.role}} · 共同兴趣 {{item.common}} 个</text>
+    <view class="row" style="margin-top:16rpx">
+      <view class="btn btn-block" bindtap="onContact">联系对方</view>
+    </view>
+  </view>
+
+  <view class="empty" wx:if="{{!matches.length}}">
+    <text>暂未找到匹配的搭子</text>
+  </view>
+</view>

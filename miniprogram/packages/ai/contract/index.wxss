@@ -1,0 +1,7 @@
+.textarea { width: 100%; min-height: 300rpx; background: var(--c-bg); border-radius: var(--radius); padding: var(--sp-sm); font-size: var(--fs-sm); box-sizing: border-box; }
+.summary-title { font-size: var(--fs-lg); font-weight: 700; display: block; }
+.risk-type { font-size: var(--fs-lg); font-weight: 600; }
+.excerpt { font-size: var(--fs-sm); display: block; margin: var(--sp-xs) 0; background: var(--c-bg); padding: var(--sp-xs); border-radius: 8rpx; }
+.reason { display: block; margin-top: var(--sp-xs); font-size: var(--fs-sm); }
+.suggest { display: block; margin-top: var(--sp-xs); font-size: var(--fs-sm); color: var(--c-primary); }
+.foot { text-align: center; padding: var(--sp-md); font-size: var(--fs-sm); }

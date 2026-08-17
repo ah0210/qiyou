@@ -1,0 +1,13 @@
+<view class="onboarding">
+  <view class="hero">
+    <text class="hero__title">一人一栖迟</text>
+    <text class="hero__sub">AI 伴你旅居中国</text>
+  </view>
+  <view class="roles">
+    <view wx:for="{{roles}}" wx:key="key" class="role-card" data-role="{{item.key}}" bindtap="onSelect">
+      <text class="role-card__icon">{{item.icon}}</text>
+      <text class="role-card__name">{{item.label}}</text>
+      <text class="role-card__desc">{{item.desc}}</text>
+    </view>
+  </view>
+</view>

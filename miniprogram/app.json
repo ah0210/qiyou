@@ -1,0 +1,97 @@
+{
+  "pages": [
+    "pages/onboarding/index",
+    "pages/index/index",
+    "pages/city/index",
+    "pages/house/list",
+    "pages/ai/chat",
+    "pages/profile/index"
+  ],
+  "subpackages": [
+    {
+      "root": "packages/ai/",
+      "name": "aiSub",
+      "pages": [
+        "match/index",
+        "result/index",
+        "contract/index",
+        "policy/index"
+      ]
+    },
+    {
+      "root": "packages/city/",
+      "name": "citySub",
+      "pages": [
+        "detail/index",
+        "budget/index"
+      ]
+    },
+    {
+      "root": "packages/house/",
+      "name": "houseSub",
+      "pages": [
+        "detail/index",
+        "compare/index"
+      ]
+    },
+    {
+      "root": "packages/community/",
+      "name": "communitySub",
+      "pages": [
+        "feed/index",
+        "companion/index",
+        "post-detail/index"
+      ]
+    },
+    {
+      "root": "packages/senior/",
+      "name": "seniorSub",
+      "pages": [
+        "toolbox/index",
+        "family/index",
+        "emergency/index"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/index/index": {
+      "network": "wifi",
+      "packages": ["aiSub", "houseSub"]
+    }
+  },
+  "plugins": {
+    "WechatSI": {
+      "version": "0.3.6",
+      "provider": "wx069ba97219f66d99"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2f6b4f",
+    "navigationBarTitleText": "栖游",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f7f6"
+  },
+  "tabBar": {
+    "color": "#7a857e",
+    "selectedColor": "#2f6b4f",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/city/index", "text": "城市" },
+      { "pagePath": "pages/house/list", "text": "房源" },
+      { "pagePath": "pages/ai/chat", "text": "AI助手" },
+      { "pagePath": "pages/profile/index", "text": "我的" }
+    ]
+  },
+  "requiredPrivateInfos": [],
+  "permission": {
+    "scope.record": {
+      "desc": "用于语音问答与适老化语音交互"
+    }
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

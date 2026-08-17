@@ -1,0 +1,6 @@
+<view class="fab {{recording ? 'fab--on' : ''}}"
+      bindtap="onTap"
+      bindlongpress="onTouchStart"
+      bindtouchend="onTouchEnd">
+  <text>{{recording ? '松开发送' : '🎙'}}</text>
+</view>

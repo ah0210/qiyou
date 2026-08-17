@@ -1,0 +1,28 @@
+<view class="page {{_theme}}">
+  <view class="card">
+    <text class="label">我的身份</text>
+    <role-switch bind:change="onRole" />
+  </view>
+
+  <view class="card">
+    <text class="label">每月预算（元）</text>
+    <input class="input" type="number" placeholder="如 3000" value="{{budget}}" bindinput="onBudget" />
+    <text class="label" style="margin-top:24rpx">旅居时长</text>
+    <view class="months">
+      <view wx:for="{{[1,2,3,6,12]}}" wx:key="*this"
+            class="month {{months === item ? 'month--on' : ''}}" data-v="{{item}}" bindtap="onMonths">{{item}}个月</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="label">核心需求（可多选）</text>
+    <view class="needs">
+      <view wx:for="{{needOptions}}" wx:key="*this"
+            class="need {{needs.includes(item) ? 'need--on' : ''}}" data-n="{{item}}" bindtap="onNeed">{{item}}</view>
+    </view>
+  </view>
+
+  <view class="submit">
+    <view class="btn btn-block" bindtap="onSubmit">{{submitting ? '匹配中...' : '开始 AI 匹配'}}</view>
+  </view>
+</view>

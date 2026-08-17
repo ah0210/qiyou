@@ -1,0 +1,8 @@
+.banner { margin: var(--sp-md); padding: var(--sp-lg); background: var(--c-primary); border-radius: var(--radius); color: #fff; }
+.banner__title { font-size: var(--fs-xl); font-weight: 700; display: block; }
+.banner__desc { display: block; margin: var(--sp-xs) 0 var(--sp-md); opacity: 0.9; }
+.banner .btn { background: #fff; color: var(--c-primary); }
+.city-name { font-size: var(--fs-lg); font-weight: 700; margin-right: var(--sp-sm); }
+.price { color: var(--c-primary); font-weight: 600; }
+.tags { margin: var(--sp-sm) 0; }
+.desc { font-size: var(--fs-sm); }

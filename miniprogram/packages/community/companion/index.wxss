@@ -1,0 +1,4 @@
+.label { font-size: var(--fs-md); font-weight: 600; display: block; margin-bottom: var(--sp-xs); }
+.name { font-size: var(--fs-lg); font-weight: 600; }
+.price { color: var(--c-primary); font-weight: 600; }
+.empty { text-align: center; padding: 160rpx 0; color: var(--c-text-sub); }

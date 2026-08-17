@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "AI 旅居匹配",
+  "usingComponents": {
+    "role-switch": "/components/role-switch/index"
+  }
+}

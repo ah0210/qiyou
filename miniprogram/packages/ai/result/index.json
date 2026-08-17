@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "匹配结果",
+  "usingComponents": {
+    "score-radar": "/components/score-radar/index",
+    "voice-fab": "/components/voice-fab/index"
+  }
+}

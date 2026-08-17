@@ -1,0 +1,5 @@
+.summary__title { font-size: var(--fs-xl); font-weight: 700; display: block; margin-bottom: var(--sp-sm); }
+.city-name { font-size: var(--fs-lg); font-weight: 700; }
+.price { color: var(--c-primary); font-weight: 600; }
+.tags { margin: var(--sp-sm) 0; }
+.empty { text-align: center; padding: 200rpx 0; color: var(--c-text-sub); }

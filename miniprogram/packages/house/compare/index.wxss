@@ -1,0 +1,15 @@
+.label { font-size: var(--fs-md); font-weight: 600; display: block; margin-bottom: var(--sp-sm); }
+.pick { display: flex; align-items: center; padding: var(--sp-xs) 0; font-size: var(--fs-md); }
+.pick__check {
+  width: 40rpx; height: 40rpx; border-radius: 8rpx;
+  border: 2rpx solid var(--c-primary);
+  margin-right: var(--sp-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--c-primary); font-size: var(--fs-sm);
+}
+.table { margin: var(--sp-md); background: var(--c-card); border-radius: var(--radius); overflow: hidden; }
+.table__row { display: flex; border-bottom: 1rpx solid var(--c-border); }
+.table__row:last-child { border-bottom: none; }
+.table__head { background: rgba(47,107,79,0.06); font-weight: 600; }
+.table__dim { width: 160rpx; flex-shrink: 0; padding: var(--sp-sm); font-size: var(--fs-sm); color: var(--c-text-sub); }
+.table__cell { flex: 1; padding: var(--sp-sm); font-size: var(--fs-sm); text-align: center; }

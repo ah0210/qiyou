@@ -1,0 +1,19 @@
+<view class="page {{_theme}}">
+  <view class="banner">
+    <text class="banner__title">预算测算</text>
+    <text class="banner__desc">看看在哪座城市安家最划算</text>
+    <view class="btn" bindtap="onBudget">去测算</view>
+  </view>
+
+  <view class="card" wx:for="{{cities}}" wx:key="_id" data-id="{{item._id}}" bindtap="onTapCity">
+    <view class="row">
+      <text class="city-name">{{item.name}}</text>
+      <text class="muted flex1">{{item.province}}</text>
+      <text class="price">¥{{item.cost.totalMonthly}}/月</text>
+    </view>
+    <view class="tags">
+      <text class="tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+    <text class="muted desc">{{item.desc}}</text>
+  </view>
+</view>

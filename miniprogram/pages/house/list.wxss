@@ -1,0 +1,16 @@
+.filters { display: flex; padding: var(--sp-md); gap: var(--sp-sm); }
+.filter {
+  flex: 1;
+  text-align: center;
+  padding: var(--sp-sm) 0;
+  background: var(--c-card);
+  border-radius: 999rpx;
+  color: var(--c-text-sub);
+  font-size: var(--fs-sm);
+}
+.filter--on { background: var(--c-primary); color: #fff; }
+.filter.compare { background: rgba(47,107,79,0.1); color: var(--c-primary); }
+.house-title { font-size: var(--fs-lg); font-weight: 600; }
+.price { color: var(--c-primary); font-weight: 600; }
+.tags { margin: var(--sp-sm) 0; }
+.desc { font-size: var(--fs-sm); }

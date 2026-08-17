@@ -1,0 +1,9 @@
+.filters { display: flex; padding: var(--sp-md); gap: var(--sp-sm); flex-wrap: wrap; }
+.filter { padding: var(--sp-xs) var(--sp-md); background: var(--c-card); border-radius: 999rpx; font-size: var(--fs-sm); color: var(--c-text-sub); }
+.filter--on { background: var(--c-primary); color: #fff; }
+.input { background: var(--c-bg); border-radius: var(--radius); padding: var(--sp-sm) var(--sp-md); font-size: var(--fs-md); }
+.p-title { font-size: var(--fs-lg); font-weight: 700; display: block; }
+.tag-city { display: block; margin: var(--sp-xs) 0; }
+.p-content { display: block; font-size: var(--fs-sm); line-height: 1.6; margin-top: var(--sp-xs); }
+.source { display: block; margin-top: var(--sp-xs); font-size: var(--fs-sm); color: var(--c-primary); }
+.foot { text-align: center; padding: var(--sp-md); font-size: var(--fs-sm); }

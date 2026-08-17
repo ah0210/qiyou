@@ -1,0 +1,17 @@
+.tools { display: flex; flex-wrap: wrap; padding: var(--sp-md); }
+.tool {
+  width: 50%;
+  box-sizing: border-box;
+  padding: var(--sp-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--c-card);
+  border-radius: var(--radius);
+}
+.tool__icon { font-size: 72rpx; }
+.tool__name { font-size: var(--fs-lg); font-weight: 600; margin-top: var(--sp-xs); }
+.label { font-size: var(--fs-md); font-weight: 600; display: block; margin-bottom: var(--sp-sm); }
+.house-title { font-size: var(--fs-lg); font-weight: 600; }
+.price { color: var(--c-primary); font-weight: 600; }
+.tags { margin: var(--sp-sm) 0; }

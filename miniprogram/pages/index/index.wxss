@@ -1,0 +1,18 @@
+.head { padding: var(--sp-lg) var(--sp-md) var(--sp-sm); }
+.head__title { font-size: var(--fs-title); font-weight: 700; display: block; }
+.head__sub { color: var(--c-text-sub); font-size: var(--fs-md); }
+
+.grid { display: flex; flex-wrap: wrap; padding: 0 var(--sp-sm); }
+.grid__cell { width: 50%; box-sizing: border-box; padding: var(--sp-sm); }
+.grid__item {
+  background: var(--c-card);
+  border-radius: var(--radius);
+  padding: var(--sp-md);
+  display: flex;
+  flex-direction: column;
+  min-height: 180rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04);
+}
+.grid__icon { font-size: 52rpx; }
+.grid__title { font-size: var(--fs-lg); font-weight: 600; margin-top: var(--sp-xs); }
+.grid__desc { font-size: var(--fs-sm); color: var(--c-text-sub); margin-top: 4rpx; }

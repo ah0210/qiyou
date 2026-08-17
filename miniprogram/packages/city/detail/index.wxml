@@ -1,0 +1,33 @@
+<view class="page {{_theme}}" wx:if="{{city}}">
+  <view class="hero">
+    <text class="hero__name">{{city.name}}</text>
+    <text class="hero__sub">{{city.province}}</text>
+    <text class="hero__cost">月成本约 ¥{{city.cost.totalMonthly}}</text>
+  </view>
+
+  <view class="card">
+    <text class="label">六维评分</text>
+    <score-radar score-detail="{{city.scoreDetail}}" size="{{300}}" />
+  </view>
+
+  <view class="card">
+    <text class="label">生活成本明细</text>
+    <view class="cost-row"><text>租房（1室）</text><text>¥{{city.cost.rent1b}}/月</text></view>
+    <view class="cost-row"><text>餐饮</text><text>¥{{city.cost.meal}}/月</text></view>
+    <view class="cost-row"><text>交通</text><text>¥{{city.cost.transport}}/月</text></view>
+    <view class="cost-row"><text>共享办公</text><text>¥{{city.cost.cowork}}/月</text></view>
+  </view>
+
+  <view class="card">
+    <view class="tags">
+      <text class="tag" wx:for="{{city.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+    <text class="muted">{{city.desc}}</text>
+    <text class="source">数据来源：{{city.dataSource}}</text>
+  </view>
+
+  <view class="actions">
+    <view class="btn btn-block" bindtap="onBudget">预算测算</view>
+    <view class="btn btn-outline btn-block" bindtap="onHouse">查看房源</view>
+  </view>
+</view>

@@ -1,0 +1,16 @@
+.onboarding { padding: var(--sp-xl) var(--sp-md); }
+.hero { text-align: center; margin: 60rpx 0 var(--sp-xl); }
+.hero__title { display: block; font-size: var(--fs-title); font-weight: 700; }
+.hero__sub { display: block; margin-top: var(--sp-sm); color: var(--c-text-sub); font-size: var(--fs-lg); }
+.role-card {
+  background: var(--c-card);
+  border-radius: var(--radius);
+  padding: var(--sp-lg);
+  margin-bottom: var(--sp-md);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2rpx 12rpx rgba(0,0,0,0.04);
+}
+.role-card__icon { font-size: 64rpx; }
+.role-card__name { font-size: var(--fs-lg); font-weight: 600; margin-top: var(--sp-sm); }
+.role-card__desc { font-size: var(--fs-sm); color: var(--c-text-sub); margin-top: var(--sp-xs); }

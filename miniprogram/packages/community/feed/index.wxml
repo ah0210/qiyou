@@ -1,0 +1,11 @@
+<view class="page {{_theme}}">
+  <view class="card">
+    <textarea class="textarea" placeholder="问个旅居相关问题..." value="{{content}}" bindinput="onInput" />
+    <view class="btn btn-block" bindtap="onPublish">发布</view>
+  </view>
+
+  <view class="card" wx:for="{{posts}}" wx:key="_id" data-id="{{item._id}}" bindtap="onDetail">
+    <text class="post-title">{{item.title}}</text>
+    <text class="muted">{{item.cityName}} · {{item.replies}} 条回复</text>
+  </view>
+</view>

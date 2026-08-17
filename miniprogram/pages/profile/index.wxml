@@ -1,0 +1,22 @@
+<view class="page {{_theme}}">
+  <view class="card"><role-switch bind:change="onRole" /></view>
+
+  <view class="card list">
+    <view class="list__item" bindtap="onToggleTheme">
+      <text>适老大字模式</text>
+      <text class="muted">{{theme === 'elder' ? '已开启' : '已关闭'}}</text>
+    </view>
+    <view class="list__item" bindtap="onToggleVoice">
+      <text>AI 回答自动朗读</text>
+      <text class="muted">{{voiceAuto ? '已开启' : '已关闭'}}</text>
+    </view>
+  </view>
+
+  <view class="card list">
+    <view class="list__item" data-url="/packages/senior/family/index" bindtap="go"><text>家属绑定</text><text class="muted">›</text></view>
+    <view class="list__item" data-url="/packages/senior/toolbox/index" bindtap="go"><text>养老工具箱</text><text class="muted">›</text></view>
+    <view class="list__item" data-url="/packages/community/feed/index" bindtap="go"><text>同城问答</text><text class="muted">›</text></view>
+  </view>
+
+  <view class="foot muted">栖游 v1.0.0 · AI 生成内容仅供参考</view>
+</view>

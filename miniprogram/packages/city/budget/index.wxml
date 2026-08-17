@@ -1,0 +1,25 @@
+<view class="page {{_theme}}">
+  <view class="card">
+    <text class="label">选择城市</text>
+    <picker range="{{cities}}" range-key="name" value="{{selIndex}}" bindchange="onCity">
+      <view class="picker">{{cities[selIndex].name}}</view>
+    </picker>
+    <text class="label" style="margin-top:24rpx">旅居时长</text>
+    <view class="months">
+      <view wx:for="{{[1,2,3,6,12]}}" wx:key="*this"
+            class="month {{months === item ? 'month--on' : ''}}" data-v="{{item}}" bindtap="onMonths">{{item}}个月</view>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{result}}">
+    <text class="label">{{result.city}} · {{result.months}}个月</text>
+    <view class="cost-row" wx:for="{{result.items}}" wx:key="name">
+      <text>{{item.name}}</text><text>¥{{item.value}}</text>
+    </view>
+    <view class="total">
+      <text>合计</text>
+      <text class="total__num">¥{{result.total}}</text>
+    </view>
+    <text class="muted">月均 ¥{{result.monthly}}</text>
+  </view>
+</view>

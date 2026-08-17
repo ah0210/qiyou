@@ -1,0 +1,18 @@
+<view class="page {{_theme}}">
+  <view class="sos">
+    <view class="sos__btn" data-phone="{{contacts[0].phone}}" bindtap="onCall">
+      <text class="sos__icon">🆘</text>
+      <text class="sos__label">一键呼叫紧急联系人</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="label">紧急联系人</text>
+    <view class="row" wx:for="{{contacts}}" wx:key="phone">
+      <text class="flex1">{{item.name}}</text>
+      <text class="muted">{{item.phone}}</text>
+      <view class="btn btn-outline" data-phone="{{item.phone}}" bindtap="onCall">呼叫</view>
+    </view>
+    <view class="btn btn-block" style="margin-top:16rpx" bindtap="onAdd">添加联系人</view>
+  </view>
+</view>

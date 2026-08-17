@@ -1,0 +1,21 @@
+<view class="page {{_theme}}">
+  <view class="filters">
+    <view class="filter {{type === '' ? 'filter--on' : ''}}" data-type="" bindtap="onFilter">全部</view>
+    <view class="filter {{type === 'nomad' ? 'filter--on' : ''}}" data-type="nomad" bindtap="onFilter">游民</view>
+    <view class="filter {{type === 'wellness' ? 'filter--on' : ''}}" data-type="wellness" bindtap="onFilter">康养</view>
+    <view class="filter {{type === 'short' ? 'filter--on' : ''}}" data-type="short" bindtap="onFilter">短租</view>
+    <view class="filter compare" bindtap="onCompare">对比</view>
+  </view>
+
+  <view class="card" wx:for="{{houses}}" wx:key="_id" data-id="{{item._id}}" bindtap="onTapHouse">
+    <view class="row">
+      <text class="house-title flex1">{{item.title}}</text>
+      <text class="price">¥{{item.priceMin}}/{{item.priceUnit}}</text>
+    </view>
+    <text class="muted">{{item.cityName}} · {{item.type}}</text>
+    <view class="tags">
+      <text class="tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+    <text class="muted desc">{{item.desc}}</text>
+  </view>
+</view>

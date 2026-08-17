@@ -1,0 +1,34 @@
+<view class="page {{_theme}}">
+  <view class="tools">
+    <view class="tool" data-url="/packages/senior/family/index" bindtap="go">
+      <text class="tool__icon">👨‍👩‍👧</text>
+      <text class="tool__name">家属绑定</text>
+    </view>
+    <view class="tool" data-url="/packages/senior/emergency/index" bindtap="go">
+      <text class="tool__icon">🆘</text>
+      <text class="tool__name">一键呼叫</text>
+    </view>
+    <view class="tool" data-url="/packages/ai/policy/index" bindtap="go">
+      <text class="tool__icon">📋</text>
+      <text class="tool__name">政策查询</text>
+    </view>
+    <view class="tool" data-url="/packages/ai/contract/index" bindtap="go">
+      <text class="tool__icon">📄</text>
+      <text class="tool__name">合同体检</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <text class="label">康养房源推荐</text>
+  </view>
+  <view class="card" wx:for="{{houses}}" wx:key="_id" data-id="{{item._id}}" bindtap="onHouse">
+    <view class="row">
+      <text class="house-title flex1">{{item.title}}</text>
+      <text class="price">¥{{item.priceMin}}/月</text>
+    </view>
+    <text class="muted">{{item.cityName}}</text>
+    <view class="tags">
+      <text class="tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+</view>

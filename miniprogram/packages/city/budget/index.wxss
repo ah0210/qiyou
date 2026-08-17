@@ -1,0 +1,8 @@
+.label { font-size: var(--fs-md); font-weight: 600; display: block; margin-bottom: var(--sp-sm); }
+.picker { background: var(--c-bg); border-radius: var(--radius); padding: var(--sp-sm) var(--sp-md); font-size: var(--fs-md); }
+.months { display: flex; flex-wrap: wrap; gap: var(--sp-xs); }
+.month { padding: var(--sp-xs) var(--sp-md); background: var(--c-bg); border-radius: 999rpx; font-size: var(--fs-sm); }
+.month--on { background: var(--c-primary); color: #fff; }
+.cost-row { display: flex; justify-content: space-between; padding: var(--sp-xs) 0; border-bottom: 1rpx solid var(--c-border); font-size: var(--fs-md); }
+.total { display: flex; justify-content: space-between; padding: var(--sp-md) 0; font-weight: 700; font-size: var(--fs-lg); }
+.total__num { color: var(--c-primary); }

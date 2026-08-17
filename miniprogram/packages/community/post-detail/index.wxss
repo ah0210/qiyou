@@ -1,0 +1,4 @@
+.title { font-size: var(--fs-xl); font-weight: 700; display: block; margin-bottom: var(--sp-sm); }
+.inputbar { display: flex; align-items: center; padding: var(--sp-sm) var(--sp-md); background: var(--c-card); gap: var(--sp-sm); position: fixed; bottom: 0; left: 0; right: 0; }
+.input { flex: 1; background: var(--c-bg); border-radius: 999rpx; padding: var(--sp-sm) var(--sp-md); font-size: var(--fs-md); }
+.send { flex-shrink: 0; }

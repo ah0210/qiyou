@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "栖游",
+  "usingComponents": {
+    "role-switch": "/components/role-switch/index"
+  }
+}

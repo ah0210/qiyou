@@ -1,0 +1,7 @@
+.hero { padding: var(--sp-lg) var(--sp-md); background: var(--c-primary); color: #fff; }
+.hero__title { font-size: var(--fs-xl); font-weight: 700; display: block; }
+.hero__sub { display: block; margin-top: var(--sp-xs); opacity: 0.9; }
+.hero__price { display: block; margin-top: var(--sp-xs); font-size: var(--fs-lg); font-weight: 600; }
+.label { font-size: var(--fs-md); font-weight: 600; display: block; margin-bottom: var(--sp-sm); }
+.tags { margin: var(--sp-sm) 0; }
+.actions { padding: var(--sp-md); }

@@ -1,0 +1,15 @@
+<view class="page {{_theme}}" wx:if="{{post}}">
+  <view class="card">
+    <text class="title">{{post.title}}</text>
+    <text class="muted">{{post.content}}</text>
+  </view>
+
+  <view class="card" wx:for="{{post.replies}}" wx:key="index">
+    <text class="muted">{{item}}</text>
+  </view>
+
+  <view class="inputbar">
+    <input class="input" placeholder="写下你的回答..." value="{{reply}}" bindinput="onInput" confirm-type="send" bindconfirm="onReply" />
+    <view class="btn send" bindtap="onReply">回复</view>
+  </view>
+</view>

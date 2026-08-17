@@ -1,0 +1,2 @@
+/* components/score-radar */
+:host { display: block; }

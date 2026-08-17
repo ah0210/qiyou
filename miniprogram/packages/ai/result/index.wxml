@@ -1,0 +1,27 @@
+<view class="page {{_theme}}" wx:if="{{plan}}">
+  <view class="summary card">
+    <text class="summary__title">{{plan.top.name}} · 匹配度 {{plan.top.matchScore}} 分</text>
+    <text class="muted">{{plan.summary}}</text>
+    <view class="row">
+      <view class="btn" bindtap="onSpeak">朗读</view>
+      <view class="btn btn-outline flex1" bindtap="onBudget">查看预算明细</view>
+    </view>
+  </view>
+
+  <view class="card" wx:for="{{plan.cities}}" wx:key="cityId">
+    <view class="row">
+      <text class="city-name flex1">{{index + 1}}. {{item.name}}</text>
+      <text class="price">{{item.matchScore}} 分</text>
+    </view>
+    <score-radar score-detail="{{item.scoreDetail}}" size="{{240}}" />
+    <view class="tags">
+      <text class="tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+    <text class="muted">{{item.desc}}</text>
+  </view>
+
+  <voice-fab auto-read-text="{{plan.summary}}" />
+</view>
+<view class="empty" wx:else>
+  <text>暂无匹配结果，请先发起匹配</text>
+</view>

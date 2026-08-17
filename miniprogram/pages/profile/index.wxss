@@ -1,0 +1,11 @@
+.list { padding: 0; overflow: hidden; }
+.list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--sp-md);
+  border-bottom: 1rpx solid var(--c-border);
+  font-size: var(--fs-md);
+}
+.list__item:last-child { border-bottom: none; }
+.foot { text-align: center; padding: var(--sp-xl); font-size: var(--fs-sm); }

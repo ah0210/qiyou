@@ -1,0 +1,26 @@
+<view class="page {{_theme}}">
+  <view class="card">
+    <textarea class="textarea" placeholder="粘贴租赁/康养合同文本..." value="{{text}}" bindinput="onInput" />
+    <view class="row" style="margin-top:16rpx">
+      <view class="btn btn-outline flex1" bindtap="loadDemo">载入示例合同</view>
+      <view class="btn flex1" bindtap="onScan">开始体检</view>
+    </view>
+  </view>
+
+  <view class="card" wx:if="{{summary}}">
+    <text class="summary-title">发现 {{summary.riskCount}} 处风险</text>
+    <text class="muted">{{summary.highCount}} 高 · {{summary.midCount}} 中 · {{summary.lowCount}} 低</text>
+  </view>
+
+  <view class="card" wx:for="{{risks}}" wx:key="type">
+    <view class="row">
+      <text class="risk-type flex1">{{item.type}}</text>
+      <text class="lv-{{item.level}}">{{item.level}}风险</text>
+    </view>
+    <text class="muted excerpt">{{item.excerpt}}</text>
+    <text class="reason">{{item.reason}}</text>
+    <text class="suggest">建议：{{item.suggestion}}</text>
+  </view>
+
+  <view class="foot muted">以上内容由规则引擎生成，仅供参考，不构成法律意见</view>
+</view>

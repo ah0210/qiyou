@@ -1,0 +1,16 @@
+{
+  "name": "qiyou",
+  "version": "1.0.0",
+  "description": "栖游 - AI 旅居康养一体化微信小程序（2026 微信小程序开发大赛参赛作品）",
+  "private": true,
+  "scripts": {
+    "sync": "node scripts/sync-shared.js",
+    "check": "node scripts/check-syntax.js",
+    "verify:pages": "node scripts/verify-pages.js",
+    "verify:routes": "node scripts/verify-routes.js",
+    "audit:wx": "node scripts/audit-wx.js",
+    "test": "node scripts/selftest.js",
+    "all": "node scripts/sync-shared.js && node scripts/check-syntax.js && node scripts/audit-wx.js && node scripts/verify-pages.js && node scripts/verify-routes.js && node scripts/selftest.js"
+  },
+  "license": "UNLICENSED"
+}
