@@ -1,0 +1,20 @@
+<view class="ccard" bindtap="onTap">
+  <view class="left">
+    <image wx:if="{{city.cover}}" class="city-img" src="{{city.cover}}" mode="aspectFill" />
+    <view wx:else class="city-ph">{{city.name}}</view>
+  </view>
+  <view class="mid flex1">
+    <view class="row">
+      <text class="name">{{city.name}}</text>
+      <text class="prov">{{city.province}}</text>
+    </view>
+    <view class="dims">
+      <text class="dim" wx:for="{{topDims}}" wx:key="key">{{item.label}} {{item.score}}</text>
+    </view>
+    <view class="tag-line ellipsis">{{city.intro || city.desc}}</view>
+  </view>
+  <view class="right">
+    <text class="score">{{score}}</text>
+    <text class="score-label">{{typeName}}适宜度</text>
+  </view>
+</view>

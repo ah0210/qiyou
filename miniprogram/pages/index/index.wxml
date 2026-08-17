@@ -1,10 +1,19 @@
 <view class="page-tab {{_theme}}">
-  <view class="head">
-    <text class="head__title">栖游</text>
-    <text class="head__sub">你好，{{roleLabel}}</text>
+  <!-- 顶部横幅 -->
+  <view class="home-banner">
+    <view class="hello">{{greeting}}，栖友</view>
+    <view class="sub">当前身份：<text class="id-name">{{roleLabel}}</text></view>
+    <view class="banner-ai" bindtap="askTip">
+      <text class="ai-q">?</text>
+      <text class="ai-txt">试试问 AI：{{tipQuestion}}</text>
+      <text class="ai-go">?</text>
+    </view>
   </view>
+
+  <!-- 身份切换卡 -->
   <view class="card"><role-switch /></view>
 
+  <!-- 金刚区（角色化入口） -->
   <view class="grid">
     <view class="grid__cell" wx:for="{{modules}}" wx:key="title">
       <view class="grid__item" data-url="{{item.url}}" data-tab="{{item.tab}}" bindtap="onTapModule">
@@ -14,4 +23,17 @@
       </view>
     </view>
   </view>
+
+  <!-- AI 提示条 -->
+  <view class="ai-strip" bindtap="askTip">
+    <text class="ai-strip-icon">?</text>
+    <text class="flex1 ellipsis">问问 AI：{{tipQuestion}}</text>
+    <text class="ai-strip-go">?</text>
+  </view>
+
+  <!-- 推荐城市 -->
+  <view class="section-title">为您推荐的城市</view>
+  <city-card wx:for="{{recCities}}" wx:key="_id" city="{{item}}" score="{{item.score}}" typeName="{{roleLabel}}" bind:tap="onCityTap" />
+
+  <view class="ai-tip">AI 推荐基于城市物价、医疗、网络、养老配套等公开指标综合计算，结果仅供参考。</view>
 </view>

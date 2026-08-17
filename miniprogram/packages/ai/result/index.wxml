@@ -1,26 +1,48 @@
 <view class="page {{_theme}}" wx:if="{{plan}}">
-  <view class="summary card">
-    <text class="summary__title">{{plan.top.name}} · 匹配度 {{plan.top.matchScore}} 分</text>
-    <text class="muted">{{plan.summary}}</text>
-    <view class="row">
-      <view class="btn" bindtap="onSpeak">朗读</view>
-      <view class="btn btn-outline flex1" bindtap="onBudget">查看预算明细</view>
-    </view>
+  <view class="loading" wx:if="{{loading}}">
+    <view class="spin"></view>
+    <view class="loading-text">AI 正在为您测算方案…</view>
+    <view class="text-sub">综合物价 / 医疗 / 网络 / 养老配套等指标</view>
   </view>
 
-  <view class="card" wx:for="{{plan.cities}}" wx:key="cityId">
-    <view class="row">
-      <text class="city-name flex1">{{index + 1}}. {{item.name}}</text>
-      <text class="price">{{item.matchScore}} 分</text>
+  <block wx:else>
+    <view class="head">
+      <view class="head-title">
+        您的专属旅居方案
+        <text class="ai-badge">{{plan.model === 'rule-v1' ? '本地AI引擎' : '大模型生成'}}</text>
+      </view>
+      <view class="head-sub">{{plan.budgetSheet ? '已生成专属预算明细' : '旅居方案推荐'}}</view>
     </view>
-    <score-radar score-detail="{{item.scoreDetail}}" size="{{240}}" />
-    <view class="tags">
-      <text class="tag" wx:for="{{item.tags}}" wx:key="*this">{{item}}</text>
-    </view>
-    <text class="muted">{{item.desc}}</text>
-  </view>
 
-  <voice-fab auto-read-text="{{plan.summary}}" />
+    <view class="card city-plan" wx:for="{{plan.cities}}" wx:key="cityId">
+      <view class="rank-row">
+        <view class="rank r{{index+1}}">TOP{{index+1}}</view>
+        <view class="flex1">
+          <view class="city-name">{{item.name}} <text class="prov">{{item.province}}</text></view>
+          <view class="text-sub">预估月开销 {{item.cost.totalMonthly}} 元</view>
+        </view>
+        <view class="score-wrap">
+          <text class="score">{{item.matchScore}}</text>
+          <text class="score-t">匹配分</text>
+        </view>
+      </view>
+
+      <score-bars score-detail="{{item.scoreDetail}}" compact="{{_theme === 'theme--elder'}}" />
+
+      <view class="reasons" wx:if="{{item.reasons.length}}">
+        <view class="reason" wx:for="{{item.reasons}}" wx:for-item="r" wx:key="*this">{{r}}</view>
+      </view>
+
+      <view class="row city-btns">
+        <button class="btn btn-ghost flex1" size="mini" data-id="{{item.cityId}}" bindtap="goCity">看城市数据</button>
+        <button class="btn btn-primary flex1" size="mini" data-id="{{item.cityId}}" bindtap="goHouses">看推荐房源</button>
+      </view>
+    </view>
+
+    <button class="btn btn-primary btn-block" bindtap="savePlan" disabled="{{saved}}">{{saved ? '已存档到我的' : '存档此方案'}}</button>
+    <button class="btn btn-ghost btn-block retry" bindtap="retry">重新生成</button>
+    <view class="ai-tip">{{disclaimer}}。预估开销基于城市平均消费水平测算，实际花销因人而异。</view>
+  </block>
 </view>
 <view class="empty" wx:else>
   <text>暂无匹配结果，请先发起匹配</text>

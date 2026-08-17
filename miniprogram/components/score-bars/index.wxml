@@ -1,0 +1,9 @@
+<view class="bars {{compact ? 'compact' : ''}}">
+  <view class="bar-row" wx:for="{{dims}}" wx:key="label">
+    <text class="bar-label">{{item.label}}</text>
+    <view class="track">
+      <view class="fill {{item.score >= 80 ? 'high' : item.score >= 60 ? 'mid' : 'low'}}" style="width: {{item.score}}%;"></view>
+    </view>
+    <text class="bar-num">{{item.score}}</text>
+  </view>
+</view>

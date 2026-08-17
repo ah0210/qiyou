@@ -1,9 +1,27 @@
-.head { padding: var(--sp-lg) var(--sp-md) var(--sp-sm); }
-.head__title { font-size: var(--fs-title); font-weight: 700; display: block; }
-.head__sub { color: var(--c-text-sub); font-size: var(--fs-md); }
+/* 顶部横幅（对标旧版栖游 home-banner，纯 CSS 渐变免图片） */
+.home-banner {
+  background: linear-gradient(135deg, #127a5f, #2db98a);
+  border-radius: var(--radius-lg);
+  padding: 36rpx 32rpx;
+  margin-bottom: var(--sp-md);
+  color: #fff;
+}
+.hello { font-size: var(--fs-xl); font-weight: 800; }
+.sub { font-size: var(--fs-md); opacity: 0.92; margin-top: 8rpx; }
+.id-name { font-weight: 700; }
+.banner-ai {
+  display: flex; align-items: center;
+  margin-top: 24rpx;
+  background: rgba(255,255,255,0.18);
+  border-radius: 999rpx;
+  padding: 12rpx 24rpx;
+}
+.ai-q, .ai-go { font-weight: 700; font-size: var(--fs-md); }
+.ai-txt { flex: 1; margin: 0 12rpx; font-size: var(--fs-sm); opacity: 0.96; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 
-.grid { display: flex; flex-wrap: wrap; padding: 0 var(--sp-sm); }
-.grid__cell { width: 50%; box-sizing: border-box; padding: var(--sp-sm); }
+/* 金刚区 */
+.grid { display: flex; flex-wrap: wrap; padding: 0 var(--sp-xs); }
+.grid__cell { width: 50%; box-sizing: border-box; padding: var(--sp-xs); }
 .grid__item {
   background: var(--c-card);
   border-radius: var(--radius);
@@ -16,3 +34,14 @@
 .grid__icon { font-size: 52rpx; }
 .grid__title { font-size: var(--fs-lg); font-weight: 600; margin-top: var(--sp-xs); }
 .grid__desc { font-size: var(--fs-sm); color: var(--c-text-sub); margin-top: 4rpx; }
+
+/* AI 提示条 */
+.ai-strip {
+  display: flex; align-items: center;
+  background: #f1ecfb;
+  border-radius: var(--radius);
+  padding: 20rpx 24rpx;
+  margin: var(--sp-md) 0;
+}
+.ai-strip-icon { color: #7a5cc9; font-weight: 800; margin-right: 12rpx; }
+.ai-strip-go { color: #7a5cc9; font-weight: 800; margin-left: 12rpx; }

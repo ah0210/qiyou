@@ -1,6 +1,8 @@
 // pages/index/index.js —— 首页（角色化模块入口）
 const { store, pageBind, ROLES } = require('../../utils/store')
 const { applyTheme } = require('../../utils/theme')
+const { CITIES } = require('../../mock/data')
+const score = require('../../utils/match')
 
 const HOME_MODULES = {
   nomad: [
@@ -30,7 +32,7 @@ const HOME_MODULES = {
 }
 
 Page({
-  data: { modules: [], roleLabel: '' },
+  data: { modules: [], roleLabel: '', greeting: '', recCities: [], tipQuestion: '' },
   onLoad() {
     applyTheme(this)
     this.setRoleModules()
@@ -41,12 +43,41 @@ Page({
     if (this.getTabBar) this.getTabBar().setData({ selected: 0 })
   },
   setRoleModules() {
-    const role = store.get('role')
-    this.setData({ modules: HOME_MODULES[role] || HOME_MODULES.traveler, roleLabel: (ROLES[role] || ROLES.traveler).label })
+    const role = store.get('role') || 'traveler'
+    const roleLabel = (ROLES[role] || ROLES.traveler).label
+    // 推荐城市：按当前身份评分 Top3
+    const rec = CITIES
+      .map((c) => ({ c, s: score.scoreByPersona(c.scoreDetail, role) }))
+      .sort((a, b) => b.s - a.s)
+      .slice(0, 3)
+      .map((x) => Object.assign({}, x.c, { score: x.s }))
+    const tips = {
+      nomad: '大理 3000 元旅居一个月够吗？',
+      traveler: '带爸妈去三亚过冬要准备多少预算？',
+      senior: '异地看病怎么直接刷医保？'
+    }
+    this.setData({
+      modules: HOME_MODULES[role] || HOME_MODULES.traveler,
+      roleLabel,
+      greeting: this.greet(),
+      recCities: rec,
+      tipQuestion: tips[role] || tips.traveler
+    })
+  },
+  greet() {
+    const h = new Date().getHours()
+    return h < 11 ? '上午好' : h < 18 ? '下午好' : '晚上好'
   },
   onTapModule(e) {
     const { url, tab } = e.currentTarget.dataset
     if (tab) wx.switchTab({ url })
     else wx.navigateTo({ url })
+  },
+  onCityTap(e) {
+    const id = e.detail.id
+    wx.navigateTo({ url: '/pages/city/index?id=' + id })
+  },
+  askTip() {
+    wx.navigateTo({ url: '/pages/ai/chat?q=' + encodeURIComponent(this.data.tipQuestion) })
   }
 })

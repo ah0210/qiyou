@@ -6,9 +6,9 @@
  */
 page {
   /* 颜色令牌 */
-  --c-primary: #2f6b4f;
-  --c-primary-dark: #1b4d33;
-  --c-primary-light: #e6f0eb;
+  --c-primary: #127a5f;
+  --c-primary-dark: #0c5a46;
+  --c-primary-light: #e6f3ee;
   --c-accent: #e8833a;
   --c-danger: #d84b3a;
   --c-danger-light: #fbe9e7;
@@ -53,9 +53,9 @@ page {
   --c-text: #000000;
   --c-text-sub: #333333;
   --c-line: #c8d2cc;
-  --c-primary: #14532d;
-  --c-primary-dark: #0b3a1f;
-  --c-primary-light: #e3f2e8;
+  --c-primary: #0c5a46;
+  --c-primary-dark: #073d2f;
+  --c-primary-light: #d9efe6;
 
   --fs-xs: 30rpx;
   --fs-sm: 34rpx;

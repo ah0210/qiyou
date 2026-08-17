@@ -1,0 +1,17 @@
+<view class="hcard" bindtap="onTap">
+  <view class="cover-wrap">
+    <view wx:if="{{house.cover}}" class="cover" style="background-image:url({{house.cover}})"></view>
+    <view wx:else class="cover-ph"><text>{{house.cityName}}</text></view>
+    <text class="type-badge">{{typeName}}</text>
+  </view>
+  <view class="info">
+    <view class="title ellipsis">{{house.title}}</view>
+    <view class="tags">
+      <text class="tag" wx:for="{{house.tags}}" wx:key="*this" wx:if="{{index < 2}}">{{item}}</text>
+    </view>
+    <view class="row-between">
+      <text class="price">{{house.priceMin}}<text class="unit">元/月</text></text>
+      <text class="rate" wx:if="{{house.rating}}">★ {{house.rating}}</text>
+    </view>
+  </view>
+</view>

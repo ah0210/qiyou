@@ -1,0 +1,10 @@
+.bars { width: 100%; }
+.compact .bar-row { margin-bottom: 8rpx; }
+.bar-row { display: flex; align-items: center; margin-bottom: 14rpx; }
+.bar-label { width: 72rpx; font-size: var(--fs-xs, 22rpx); color: var(--c-text-sub, #6b7a72); flex-shrink: 0; }
+.track { flex: 1; height: 14rpx; background: var(--c-line, #e5eae7); border-radius: 999rpx; overflow: hidden; margin: 0 16rpx; }
+.fill { height: 100%; border-radius: 999rpx; transition: width 0.3s; }
+.fill.high { background: var(--c-primary, #127a5f); }
+.fill.mid { background: var(--c-warn, #d98f1f); }
+.fill.low { background: var(--c-sub, #9aa0a8); }
+.bar-num { width: 44rpx; text-align: right; font-size: var(--fs-xs, 22rpx); color: var(--c-text, #1f2a25); flex-shrink: 0; }

@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "栖游",
   "usingComponents": {
-    "role-switch": "/components/role-switch/index"
+    "role-switch": "/components/role-switch/index",
+    "city-card": "/components/city-card/index"
   }
 }
