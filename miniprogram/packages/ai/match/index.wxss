@@ -1,9 +1,37 @@
-.label { font-size: var(--fs-md); font-weight: 600; display: block; margin-bottom: var(--sp-sm); }
-.input { background: var(--c-bg); border-radius: var(--radius); padding: var(--sp-sm) var(--sp-md); font-size: var(--fs-md); }
-.months { display: flex; flex-wrap: wrap; gap: var(--sp-xs); }
-.month { padding: var(--sp-xs) var(--sp-md); background: var(--c-bg); border-radius: 999rpx; font-size: var(--fs-sm); }
-.month--on { background: var(--c-primary); color: #fff; }
-.needs { display: flex; flex-wrap: wrap; gap: var(--sp-xs); }
-.need { padding: var(--sp-xs) var(--sp-md); background: var(--c-bg); border-radius: 999rpx; font-size: var(--fs-sm); }
-.need--on { background: rgba(47,107,79,0.12); color: var(--c-primary); border: 2rpx solid var(--c-primary); }
-.submit { padding: var(--sp-md); }
+/* packages/ai/match/index.wxss —— 分步问卷 */
+.label { font-size: var(--font-base); font-weight: 600; display: block; margin-bottom: var(--gap); }
+.m__progress {
+  text-align: center; font-size: var(--font-sm); color: var(--text-2);
+  padding: var(--gap) 0; font-weight: 600;
+}
+.m__ai-note {
+  margin-top: var(--gap); font-size: var(--font-sm); color: var(--text-2);
+  background: rgba(47,107,79,0.06); border-radius: var(--radius); padding: 16rpx 20rpx; line-height: 1.5;
+}
+
+/* 预算滑块 */
+.m__budget { font-size: 48rpx; font-weight: 700; color: var(--primary); margin: 8rpx 0 16rpx; }
+.m__row-label { display: flex; justify-content: space-between; font-size: var(--font-sm); color: var(--text-3); }
+
+/* chip 通用 */
+.chips { display: flex; flex-wrap: wrap; gap: 16rpx; }
+.chip {
+  padding: 16rpx 32rpx; background: var(--bg); border-radius: 999rpx;
+  font-size: var(--font-sm); color: var(--text);
+  border: 2rpx solid transparent;
+}
+.chip--on {
+  background: rgba(47,107,79,0.12); color: var(--primary);
+  border-color: var(--primary); font-weight: 600;
+}
+
+/* 确认页 */
+.m__confirm {
+  background: var(--bg); border-radius: var(--radius); padding: var(--gap);
+  font-size: var(--font-base); color: var(--text); line-height: 1.9; white-space: pre-wrap;
+}
+
+/* 底部导航 */
+.m__footer { display: flex; gap: 16rpx; padding: var(--gap) 0; }
+.m__btn { flex: 1; }
+.m__spacer { flex: 1; }

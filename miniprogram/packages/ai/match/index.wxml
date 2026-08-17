@@ -1,28 +1,53 @@
 <view class="page {{_theme}}">
-  <view class="card">
-    <text class="label">我的身份</text>
+  <view class="m__progress">第 {{step}} / {{totalSteps}} 步</view>
+
+  <!-- 第1步：身份 -->
+  <view class="card" wx:if="{{step===1}}">
+    <text class="label">你的身份是？</text>
     <role-switch bind:change="onRole" />
+    <view class="m__ai-note">不同身份的城市打分权重不同：游民看重网络与物价，康养看重医疗与适老。</view>
   </view>
 
-  <view class="card">
-    <text class="label">每月预算（元）</text>
-    <input class="input" type="number" placeholder="如 3000" value="{{budget}}" bindinput="onBudget" />
-    <text class="label" style="margin-top:24rpx">旅居时长</text>
-    <view class="months">
-      <view wx:for="{{[1,2,3,6,12]}}" wx:key="*this"
-            class="month {{months === item ? 'month--on' : ''}}" data-v="{{item}}" bindtap="onMonths">{{item}}个月</view>
+  <!-- 第2步：预算 + 时长 -->
+  <view class="card" wx:if="{{step===2}}">
+    <text class="label">每月预算</text>
+    <view class="m__budget">￥{{budget}} / 月</view>
+    <slider min="1500" max="10000" step="100" value="{{budget}}" activeColor="#2f6b4f" bindchange="onBudget" block-size="28" />
+    <view class="m__row-label"><text>1500</text><text>10000+</text></view>
+
+    <text class="label" style="margin-top:32rpx">计划住多久？</text>
+    <view class="chips">
+      <view wx:for="{{durationOptions}}" wx:key="*this"
+            class="chip {{months===item ? 'chip--on' : ''}}" data-v="{{item}}" bindtap="onDuration">{{item}}个月</view>
     </view>
   </view>
 
-  <view class="card">
-    <text class="label">核心需求（可多选）</text>
-    <view class="needs">
-      <view wx:for="{{needOptions}}" wx:key="*this"
-            class="need {{needs.includes(item) ? 'need--on' : ''}}" data-n="{{item}}" bindtap="onNeed">{{item}}</view>
+  <!-- 第3步：气候 + 需求 -->
+  <view class="card" wx:if="{{step===3}}">
+    <text class="label">气候偏好？</text>
+    <view class="chips">
+      <view wx:for="{{climateOptions}}" wx:key="key"
+            class="chip {{climate===item.key ? 'chip--on' : ''}}" data-k="{{item.key}}" bindtap="onClimate">{{item.label}}</view>
+    </view>
+
+    <text class="label" style="margin-top:32rpx">核心需求（可多选）</text>
+    <view class="chips">
+      <view wx:for="{{needOptions}}" wx:key="key"
+            class="chip {{needs.indexOf(item.key)>=0 ? 'chip--on' : ''}}" data-k="{{item.key}}" bindtap="onNeed">{{item.label}}</view>
     </view>
   </view>
 
-  <view class="submit">
-    <view class="btn btn-block" bindtap="onSubmit">{{submitting ? '匹配中...' : '开始 AI 匹配'}}</view>
+  <!-- 第4步：确认 -->
+  <view class="card" wx:if="{{step===4}}">
+    <text class="label">确认并生成方案</text>
+    <view class="m__confirm">{{confirmText}}</view>
+    <view class="m__ai-note">AI 将综合物价、医疗、气候、网络与养老配套，为你生成城市 Top3、预算明细与政策清单。</view>
+  </view>
+
+  <view class="m__footer">
+    <view class="btn btn-ghost m__btn" bindtap="prev" wx:if="{{step>1}}">上一步</view>
+    <view class="m__spacer" wx:if="{{step===1}}"></view>
+    <view class="btn btn-primary m__btn" wx:if="{{step<4}}" bindtap="next">下一步</view>
+    <view class="btn btn-primary m__btn" wx:else bindtap="onSubmit">{{submitting ? '匹配中...' : '生成 AI 方案'}}</view>
   </view>
 </view>

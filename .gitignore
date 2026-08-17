@@ -1,6 +1,28 @@
+# 依赖
 node_modules/
 miniprogram_npm/
+cloudfunctions/**/node_modules/
+
+# 系统/编辑器
 .DS_Store
 *.log
-.project.private.config.json
-cloudfunctions/**/node_modules/
+Thumbs.db
+
+# 微信开发者工具私有配置（可能含 AppSecret / 上传密钥）
+project.private.config.json
+private.*.key
+private.*.json
+
+# 环境变量 / 密钥（部署时本地填，禁止入库）
+.env
+.env.*
+*.local
+.env.local
+
+# 云开发环境真实 ID 等部署产物（env.js 为模板，真实值勿提交）
+# 注意：env.js 本身需入库作为模板，但 cloudEnvId 真实值部署后应还原为空或走环境变量
+
+# 构建 / 缓存
+dist/
+.cache/
+*.zip

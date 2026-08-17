@@ -52,16 +52,30 @@ function matchCities(cities, input) {
     .map((c) => {
       const base = scoreByPersona(c.scoreDetail, role)
       const bonus = needsBonus(c.tags, needs, role)
+      const cBonus = climateBonus(c, input.climate)
       return {
         cityId: c._id, name: c.name, province: c.province, tags: c.tags,
         scoreDetail: c.scoreDetail, cost: c.cost, desc: c.desc,
-        matchScore: Math.max(35, Math.min(98, base + bonus)),
-        scoreBase: base, scoreNeeds: bonus,
+        matchScore: Math.max(35, Math.min(98, base + bonus + cBonus)),
+        scoreBase: base, scoreNeeds: bonus, scoreClimate: cBonus,
         reasons: buildReasons(c, role, needs)
       }
     })
     .sort((a, b) => b.matchScore - a.matchScore)
     .slice(0, 3)
+}
+
+// 气候偏好加成：命中 +4（与 needsBonus 同级，不打乱权重和）
+function climateBonus(c, climate) {
+  if (!climate) return 0
+  const tags = c.tags || []
+  const cl = c.scoreDetail.climate || 0
+  const hit =
+    (climate === 'warm' && (tags.some((t) => /暖|过冬|温暖/.test(t)) || cl >= 88)) ||
+    (climate === 'cool' && cl >= 70 && cl <= 85) ||
+    (climate === 'coast' && tags.some((t) => /海景/.test(t))) ||
+    (climate === 'dry' && !tags.some((t) => /海景|湿润/.test(t)))
+  return hit ? 4 : 0
 }
 
 function buildReasons(c, role, needs) {
